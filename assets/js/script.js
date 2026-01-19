@@ -64,6 +64,56 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
+const mobileMenu = document.getElementById('mobileMenu');
+const navToggle = document.querySelector('.nav-toggle');
+const mobileClose = document.querySelector('.mobile-menu__close');
+
+const closeMobileMenu = () => {
+  if (!mobileMenu || !navToggle) return;
+  mobileMenu.classList.remove('is-open');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  navToggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+};
+
+const openMobileMenu = () => {
+  if (!mobileMenu || !navToggle) return;
+  mobileMenu.classList.add('is-open');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+  navToggle.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+  document.documentElement.style.overflow = 'hidden';
+};
+
+navToggle?.addEventListener('click', () => {
+  if (mobileMenu?.classList.contains('is-open')) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+});
+
+mobileClose?.addEventListener('click', closeMobileMenu);
+
+mobileMenu?.addEventListener('click', (event) => {
+  if (event.target === mobileMenu) {
+    closeMobileMenu();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeMobileMenu();
+  }
+});
+
+document.querySelectorAll('.mobile-menu a').forEach((link) => {
+  link.addEventListener('click', () => {
+    closeMobileMenu();
+  });
+});
+
 if (phoneInput) {
   const formatPhone = (value) => {
     const digits = value.replace(/\D/g, '').replace(/^8/, '7');

@@ -25,10 +25,32 @@
       <a href="#suppliers">Поставщики</a>
       <a href="#contact">Контакты</a>
     </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Открыть меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <div class="contacts-inline">
       <a class="link-mail" href="mailto:105@td-avrora.ru">105@td-avrora.ru</a>
       <a class="btn btn-ghost" href="tel:89006476606">8 900 647-66-06</a>
       <a class="btn btn-accent" href="#contact">Заявка</a>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-menu__content">
+        <button class="mobile-menu__close" type="button" aria-label="Закрыть меню">×</button>
+        <nav class="mobile-menu__nav">
+          <a href="#about">Компания</a>
+          <a href="#cycle">Цикл работ</a>
+          <a href="#portfolio">Проекты</a>
+          <a href="#suppliers">Поставщики</a>
+          <a href="#contact">Контакты</a>
+        </nav>
+        <div class="mobile-menu__contacts">
+          <a class="mobile-menu__link" href="mailto:105@td-avrora.ru">105@td-avrora.ru</a>
+          <a class="mobile-menu__link" href="tel:89006476606">8 900 647-66-06</a>
+          <a class="btn btn-accent" href="#contact">Заявка</a>
+        </div>
+      </div>
     </div>
   </header>
 
